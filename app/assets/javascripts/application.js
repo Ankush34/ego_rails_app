@@ -23,6 +23,7 @@
 //= require_tree      ./marionette/views/collectionView
 //= require bootstrap
 //= require moment
+//= require popper.min
 //= require selectize
 //= require noty
 //= require rails-ujs
