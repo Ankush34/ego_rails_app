@@ -1,0 +1,24 @@
+<td><%= shops.name%></td>
+  <td><%= shops.user_id%> </td>
+  <td><%= shops.city_id%> </td>
+  <td><%= shops.area_id%>  </td>
+  <td><%= shops.category_id %> </td>
+  <td><%= shops.subcategory_id %> </td>
+  <td><%= shops.created_at %> </td>
+  <td><%= shops.updated_at %> </td>
+  <td><%= shops.approve_status %> </td>
+  <td>
+    <%
+     if(shops.approve_status)
+      {
+        console.log( 'yes')
+      }
+    else
+     {
+       console.log('No')
+     }
+   %>
+</td>
+<td><a href="#">Approve</a></td>
+<td><a href="#">Reject</a></td>
+<td><a href="#">Remove</a></td>

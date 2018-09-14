@@ -21,7 +21,6 @@ class ApplicationController < ActionController::Base
   end
 
 	def set_current_user
-    binding.pry
     id = current_user.present? ? current_user.id.to_s : nil
     RequestStore.store[:current_user_id] = id
   end

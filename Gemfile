@@ -72,6 +72,8 @@ group :development do
   
   gem 'jwt'
  
+  gem 'ejs'
+
  end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

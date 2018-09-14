@@ -10,6 +10,21 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery-3.2.1
+//= require underscore
+//= require backbone
+//= require backbone.marionette
+//= require_directory ./backbone_defaults/models
+//= require_directory ./marionette/controllers
+//= require_directory ./marionette/routes
+//= require_tree ../template/
+//= require_tree      ./marionette/views/layoutViews
+//= require_tree      ./marionette/views/itemviews
+//= require_tree      ./marionette/views/collectionView
+//= require bootstrap
+//= require moment
+//= require selectize
+//= require noty
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
