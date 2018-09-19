@@ -50,6 +50,8 @@ class User
 	validates :contact_no, uniqueness: true, if: Proc.new{|user| user.email.blank? }
   validates :jti , uniqueness: true
 	
+  has_many :vehicles
+
   def self.available_roles
 		roles = [
 			{id:"user",name:"User"},

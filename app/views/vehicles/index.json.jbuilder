@@ -1,0 +1,1 @@
+json.array! @vehicles, :number, :vehicle_type, :registration_number, :city, :state
