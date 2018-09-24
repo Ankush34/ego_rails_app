@@ -1,7 +1,6 @@
 class UserPolicy < ApplicationPolicy
 
   def index?
-    binding.pry
     return true
   end
 

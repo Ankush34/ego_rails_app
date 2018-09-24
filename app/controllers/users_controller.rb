@@ -26,10 +26,6 @@ class UsersController < ApplicationController
 		end
 	end
 
-	def login_from_api
-			
-	end
-	
 	def user_params
       params.require(:user).permit(:name, :email, :contact_no, :password)
     end

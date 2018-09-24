@@ -5,7 +5,7 @@ class VehiclesController < ApplicationController
 		@vehicles = @user.vehicles.reverse
 		respond_to do |format|
 	  	format.json { render "index.json", status: :created }
-	  	format.html { redirect_to vehicles_path, notice: 'Vehicle was successfully created.' }
+	  	format.html { redirect_to vehicles_path, notice: 'Vehicles were found successfully.' }
     end
 	end
 
@@ -36,17 +36,34 @@ class VehiclesController < ApplicationController
 	end
 
 	def update
+		if(@vehicle.update_attributes(vehicle_params))
+			respond_to do |format|
+		  	format.json { render "updated.json", status: :created }
+		  	format.html { redirect_to vehicles_path, notice: 'Vehicle was successfully updated.' }
+      end
+		else
+			respond_to do |format|
+				format.json { render json: @vehicle.errors, status: :unprocessable_entity }
+				format.html { render :edit }
+     	end
+		end
 	end
 
 	def set_user
 		if(params[:email].present?)
 			@user = User.find_by(email: params[:email]);
 		elsif params[:id].present?
-			@user = User.find(params[:id])
+			if(params[:action] == "update")
+				@vehicle = Vehicle.find(params[:id])
+			else
+				@user = User.find(params[:id])
+			end
 		end
 	end
 
 	def vehicle_params
-    params.require(:vehicle).permit(:number, :registration_number, :city, :state, :vehicle_type)
+    params.require(:vehicle).permit(:number, :registration_number, :city, :state,
+     :vehicle_type,:pubsub_channel, :location_attributes => [:longitude, :latitude, :start_location_latitude, :start_location_longitude, 
+     	:end_location_latitude, :end_location_longitude])
 	end
 end
