@@ -63,7 +63,6 @@ class VehiclesController < ApplicationController
 
 	def vehicle_params
     params.require(:vehicle).permit(:number, :registration_number, :city, :state,
-     :vehicle_type,:pubsub_channel, :location_attributes => [:longitude, :latitude, :start_location_latitude, :start_location_longitude, 
-     	:end_location_latitude, :end_location_longitude])
+     :vehicle_type)
 	end
 end

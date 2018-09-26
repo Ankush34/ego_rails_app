@@ -44,13 +44,18 @@ class User
 	field :contact_no, type: String
 	field :role, type: String
   field :jti, type: String
-
-	validates :name, :email, :password, :contact_no, presence: true
+  field :user_type, type: String, default: "ServiceSeeker"
+	field :pubsub_channel, type: String, default: ""
+  field :riding_status, type: String, default: ""
+  validates :name, :email, :contact_no, presence: true
 	validates :email, uniqueness: true , if: Proc.new{|user| user.contact_no.blank? }
 	validates :contact_no, uniqueness: true, if: Proc.new{|user| user.email.blank? }
   validates :jti , uniqueness: true
+
 	
   has_many :vehicles
+  has_one :location
+  accepts_nested_attributes_for :location
 
   def self.available_roles
 		roles = [

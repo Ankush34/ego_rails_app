@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resource :users do
   	get "/", to: 'users#index'
   	post "/create_user_from_api", to: 'users#create_user_from_api'
+    put "/update_user_from_api",to: 'users#update_user_from_api'
   end
 
   resources :vehicles do 

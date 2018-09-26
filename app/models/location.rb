@@ -2,6 +2,8 @@ class Location
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  field :pickup_location, type: String
+  field :destination_location, type: String
   field :start_location_latitude
   field :end_location_latitude
   field :start_location_longitude
@@ -10,9 +12,8 @@ class Location
   field :city, type: String
   field :country, type: String
   field :longitude, type: String
+  field :route, type: String
+  field :s2_region_id, type: String
 
-  validates :latitude, presence: true
-  validates :longitude, presence: true
-  
-  belongs_to :vehicle
+  belongs_to :user
 end
